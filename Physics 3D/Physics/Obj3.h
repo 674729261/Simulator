@@ -71,6 +71,11 @@ struct Coord3//平面向量及运算
 		return Coord3{ x * v,y * v ,z * v };
 	}
 
+	Coord3 operator*(const Coord3& o)//向量积
+	{
+		return Coord3{ y * o.z - z * o.y,z * o.x - x * o.z ,x * o.y - y * o.z };
+	}
+
 	Coord3 operator-()
 	{
 		return Coord3{ -x, -y ,-z };

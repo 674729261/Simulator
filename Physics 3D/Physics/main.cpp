@@ -37,6 +37,8 @@ int main()
 			n = i;
 		}
 		*/
+
+		//这是个某种情况下的三体运动
 		Coord3 p1 = m1.get_pos(), p2 = m2.get_pos(), p3 = m3.get_pos();
 		double n1 = m1.get_mass(), n2 = m2.get_mass(), n3 = m3.get_mass();
 		k = p2 - p1;
@@ -68,15 +70,16 @@ int main()
 		dir = k / k.module();
 		f = G * n3 * n2 / k.module2();
 		m3.add_force(dir * f);
+		//这是个某种情况下的三体运动
 
 		m1.exec(dt);
 		m2.exec(dt);
 		m3.exec(dt);
 		if (i - n >= 32000.0)
 		{
-			of << m1.get_pos().x/4.0 << ' ' << m1.get_pos().y/4.0 << ' ' << m1.get_pos().z/4.0<< endl;
-			of2 << m2.get_pos().x / 4.0 << ' ' << m2.get_pos().y / 4.0 << ' ' << m2.get_pos().z / 4.0 << endl;
-			of3 << m3.get_pos().x / 4.0 << ' ' << m3.get_pos().y / 4.0 << ' ' << m3.get_pos().z / 4.0 << endl;
+			of << m1.get_pos().x / 4.0 << ' ' << m1.get_pos().y/4.0 << ' ' << m1.get_pos().z/4.0<< endl;//坐标输出时除以了一个4
+			of2 << m2.get_pos().x / 4.0 << ' ' << m2.get_pos().y / 4.0 << ' ' << m2.get_pos().z / 4.0 << endl;//坐标输出时除以了一个4
+			of3 << m3.get_pos().x / 4.0 << ' ' << m3.get_pos().y / 4.0 << ' ' << m3.get_pos().z / 4.0 << endl;//坐标输出时除以了一个4
 			n = i;
 		}
 

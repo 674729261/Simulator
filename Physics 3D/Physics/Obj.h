@@ -67,6 +67,7 @@ struct Coord//平面向量及运算
 	return Coord{ x * v,y * v };
 	}
 
+
 	Coord operator-()
 	{
 		return Coord{ -x, -y };
